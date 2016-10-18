@@ -1,0 +1,33 @@
+{
+  "name": "big-num",
+  "version": "1.0.0",
+  "description": "大数操作，练手的",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npm i -g typescript gulp-cli",
+    "start": "gulp",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yyjazsf/bigNum.git"
+  },
+  "keywords": [
+    "bigNum"
+  ],
+  "author": "Ivan Ying",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yyjazsf/bigNum/issues"
+  },
+  "homepage": "https://github.com/yyjazsf/bigNum#readme",
+  "devDependencies": {
+    "browser-sync": "^2.17.3",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.0.2",
+    "gulp-load-plugins": "^1.3.0",
+    "typescript": "^2.0.3"
+  },
+  "dependencies": {}
+}

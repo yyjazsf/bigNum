@@ -1,0 +1,14 @@
+{
+    "files": [
+        "src/ts/index.ts"
+    ],
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "declaration": false,
+        "sourceMap": true,
+        "target": "es5",
+        "lib": ["dom","es6"]
+    }
+}
