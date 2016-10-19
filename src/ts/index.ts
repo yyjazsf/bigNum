@@ -15,9 +15,11 @@ class bigNum {
   private arg1: Array<number>;
   private arg2: Array<number>;
 
-  public result: String;
+  public result: string;
 
-  constructor() { };
+  constructor() {
+    this.result = '';
+  };
 
   // process arguments to array<Number>,and set this.arg1  this.arg2
   private processArgs(num1: String, num2: String) {
@@ -48,10 +50,11 @@ class bigNum {
 
   // add
   add(num1: String, num2: String) {
-    let result: string = '';
+    this.result = '';
     let Stepping: number = 0;
     this.processArgs(num1, num2);
     let temp: number;
+    let index: number;
     //
     for (let i = this.arg2.length - 1; i > -1; i--) {
       temp = this.arg2[i] + this.arg1[i] + Stepping;
@@ -61,29 +64,35 @@ class bigNum {
         Stepping = carry.Stepping;
         temp = carry.temp;
       }
-      result = temp + result;
+      this.result = temp.toString() + this.result;
     }
     // 位数不相等，相同的位置已经加完了，现在处理多余的位置
     if (this.arg1.length > this.arg2.length) {
       for (let i = this.arg1.length - this.arg2.length - 1; i > -1; i--) {
-        if (Stepping !== 0) {
-          temp = this.arg1[i] + Stepping;
-          Stepping = 0;
-        }
-        if(temp > 9){
+        temp = this.arg1[i] + Stepping;
+        Stepping = 0;
+        if (temp > 9) {
           let carry = this.processMoreDigit(temp);
           Stepping = carry.Stepping;
           temp = carry.temp;
         }
-        else{
-          // todo recording curr index
+        else {
+          index = i - 1;
+        }
+        this.result = temp.toString() + this.result;
+        if (index !== undefined) {
           break;
         }
-        result = temp + result;
       }
     }
+    else if(Stepping !== 0) {
+      this.result = Stepping.toString() + this.result;
+    }
+    if (index !== undefined) {
+      this.result = this.arg1.splice(0, index).join('') + this.result;
+    }
 
-
+    console.log(this.result);
 
     return this;
   }
@@ -102,5 +111,6 @@ class bigNum {
 
 
 let yyj = new bigNum();
-let zry = yyj.add('11111', '11111');
+let zry = yyj.add('9', '9');
 
+console.log(zry.result);
