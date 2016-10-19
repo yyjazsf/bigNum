@@ -14,7 +14,7 @@ gulp.task('default', () => {
     'browser'
   );
 
-  gulp.watch('./src/ts/*.ts',['ts']);
+  gulp.watch('./src/**/*.ts',['ts']);
 });
 
 gulp.task('browser', () => {
@@ -53,7 +53,7 @@ gulp.task('ts',()=>{
   return tsProject.src()
     .pipe(tsProject())
     .js
-    .pipe(gulp.dest('./dist/js'))
+    .pipe(gulp.dest('./dist'))
 });
 
 // use this for gulp-plumber
