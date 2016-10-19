@@ -1,14 +1,36 @@
 {
     "files": [
-        "src/ts/index.ts"
+        "src/index.ts"
+    ],
+    "include": [
+        "src/**/*.ts"
+
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts",
+        "dist/**/*"
     ],
     "compilerOptions": {
+        "rootDir": ".",
         "noImplicitAny": true,
+        "noEmitOnError": true,
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "mapRoot": "",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
         "declaration": false,
         "sourceMap": true,
         "target": "es5",
-        "lib": ["dom","es6"]
+        "lib": [
+            "dom",
+            "es6"
+        ],
+        "typeRoots": [
+            "./node_modules/@types"
+        ]
     }
 }
