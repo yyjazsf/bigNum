@@ -1,8 +1,7 @@
 /**
  * 第一次写 :)
  */
-const assert = require('assert');
-
+import * as assert from 'assert';
 import add from '../../src/add';
 
 // add 方法 第一个参数的位数 >= 第二个参数的位数
