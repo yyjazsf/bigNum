@@ -4,7 +4,7 @@
   "description": "大数操作，练手的",
   "main": "index.js",
   "scripts": {
-    "preinstall": "npm i -g typescript gulp-cli",
+    "preinstall": "npm i -g typescript gulp-cli ts-node webpack",
     "start": "gulp",
     "test": "node tests/runner"
   },
@@ -37,6 +37,7 @@
     "run-sequence": "^1.2.2",
     "source-map-loader": "^0.1.5",
     "ts-loader": "^0.9.4",
+    "ts-node": "^1.6.0",
     "tslint": "^3.15.1",
     "webpack": "^1.13.2"
   },

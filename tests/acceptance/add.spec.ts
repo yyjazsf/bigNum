@@ -1,5 +1,6 @@
 /**
  * 第一次写 :)
+ * mocha --compilers ts:ts-node/register tests/acceptance/add.spec.ts
  */
 import * as assert from 'assert';
 import add from '../../src/add';
