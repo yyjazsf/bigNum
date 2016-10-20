@@ -9,10 +9,10 @@ var path = require('path');
 
 var root = 'tests/acceptance';
 var specFiles = glob.sync(root + '/**/*.spec.*');
-var mocha = new Mocha({ 
-  timeout: 5000, 
+var mocha = new Mocha({
+  timeout: 5000,
   reporter: 'spec'
- });
+});
 
 specFiles.forEach(mocha.addFile.bind(mocha));
 
