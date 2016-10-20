@@ -2,50 +2,49 @@
  * 
  */
 
-import processMoreDigit from './utils/processMoreDigit'
+import processMoreDigit from './utils/processMoreDigit';
 
 export default function add(num1: Array<number>, num2: Array<number>) {
-  let result = ''
-  let Stepping: number = 0
-  let temp: number
-  let index: number
+  let result = '';
+  let Stepping = 0;
+  let temp: number;
+  let index: number;
 
   for (let i = num2.length - 1; i > -1; i--) {
-    temp = num2[i] + num1[i] + Stepping
-    Stepping = 0//阅后即焚
+    temp = num2[i] + num1[i] + Stepping;
+    Stepping = 0; // 阅后即焚
     if (temp > 9) {
-      let carry = processMoreDigit(temp)
-      Stepping = carry.Stepping
-      temp = carry.temp
+      let carry = processMoreDigit(temp);
+      Stepping = carry.Stepping;
+      temp = carry.temp;
     }
-    result = temp.toString() + result
+    result = temp.toString() + result;
   }
   // 位数不相等，相同的位置已经加完了，现在处理多余的位置
   if (num1.length > num2.length) {
     for (let i = num1.length - num2.length - 1; i > -1; i--) {
-      temp = num1[i] + Stepping
-      Stepping = 0
+      temp = num1[i] + Stepping;
+      Stepping = 0;
       if (temp > 9) {
-        let carry = processMoreDigit(temp)
-        Stepping = carry.Stepping
-        temp = carry.temp
+        let carry = processMoreDigit(temp);
+        Stepping = carry.Stepping;
+        temp = carry.temp;
       }
       else {
-        index = i - 1
+        index = i - 1;
       }
-      result = temp.toString() + result
+      result = temp.toString() + result;
       if (index !== undefined) {
-        break
+        break;
       }
     }
-  }
-  else if (Stepping !== 0) {
-    result = Stepping.toString() + result
+  }else if (Stepping !== 0) {
+    result = Stepping.toString() + result;
   }
   if (index !== undefined) {
-    result = num1.splice(0, index).join('') + result
+    result = num1.splice(0, index).join('') + result;
   }
 
 
-  return result
+  return result;
 }
