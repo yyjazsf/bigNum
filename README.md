@@ -8,6 +8,7 @@
 * Typescript 
 * Unit Test
 * E2E Test
+* webpack
 
 ## Usage 
 ```bash

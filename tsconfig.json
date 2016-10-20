@@ -4,7 +4,6 @@
     ],
     "include": [
         "src/**/*.ts"
-
     ],
     "exclude": [
         "node_modules",
@@ -18,19 +17,30 @@
         "moduleResolution": "node",
         "module": "commonjs",
         "mapRoot": "",
+        "baseUrl": "./src",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
         "removeComments": true,
         "preserveConstEnums": true,
         "declaration": false,
         "sourceMap": true,
         "target": "es5",
+        "typeRoots": [
+            "./node_modules/@types"
+        ],
         "lib": [
             "dom",
             "es6"
         ],
-        "typeRoots": [
-            "./node_modules/@types"
-        ]
+        "types": [
+            "jasmine",
+            "node",
+            "webpack"
+        ],
+        "awesomeTypescriptLoaderOptions": {
+            "forkChecker": true,
+            "useWebpackText": true
+        }
     }
 }

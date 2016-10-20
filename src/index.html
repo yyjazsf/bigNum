@@ -2,14 +2,18 @@
 <html lang="zh-cn">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"
+	/>
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="white" />
 	<meta name="format-detection" content="telephone=no" />
-	<title></title>
+	<title>
+		<%= htmlWebpackPlugin.options.title %>
+	</title>
+	<base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
 	<link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-	<script src="js/index.js"></script>
+
 </head>
 <body>
 	<div class="container">
@@ -34,5 +38,10 @@
 			</div>
 		</form>
 	</div>
+
+	<% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
+	<!--Webpack Dev Server reload-->
+	<script src="/webpack-dev-server.js"></script>
+	<% } %>
 </body>
 </html>
