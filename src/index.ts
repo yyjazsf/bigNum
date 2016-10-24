@@ -68,6 +68,6 @@ class BigNum {
 
 
 let yyj = new BigNum();
-let zry = yyj.add('9', '9');
+let zry = yyj.add('111', '1');
 
 console.log(zry.result);

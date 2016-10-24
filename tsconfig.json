@@ -37,10 +37,11 @@
             "jasmine",
             "node",
             "webpack"
-        ],
-        "awesomeTypescriptLoaderOptions": {
-            "forkChecker": true,
-            "useWebpackText": true
-        }
+        ]
+        // ,
+        // "awesomeTypescriptLoaderOptions": {
+        //     "forkChecker": true,
+        //     "useWebpackText": true
+        // }
     }
 }
