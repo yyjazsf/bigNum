@@ -8,7 +8,6 @@ import multiply from './multiply';
 import divide from './divide';
 import remainder from './remainder';
 
-
 // js 可安全操作的最大整数 Math.pow(2, 53) - 1
 // 如果 for 循环条件为 <= Math.pow(2, 53)  就会死循环
 // const maxNum = Number.MAX_SAFE_INTEGER;

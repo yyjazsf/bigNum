@@ -12,8 +12,9 @@
 
 ## Usage 
 ```bash
+## also can use yarn
 npm i 
-npm run startw
+npm run start
 ```
 
 ### Todo
