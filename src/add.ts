@@ -10,8 +10,8 @@ export default function add(num1: Array<number>, num2: Array<number>) {
   let temp: number;
   let index: number;
 
-  for (let i = num2.length - 1; i > -1; i--) {
-    temp = num2[i] + num1[i] + Stepping;
+  for (let i = num1.length - 1, j = num2.length - 1; j > -1; j--, i--) {
+    temp = num1[i] + num2[j] + Stepping;
     Stepping = 0; // 阅后即焚
     if (temp > 9) {
       let carry = processMoreDigit(temp);
@@ -29,8 +29,7 @@ export default function add(num1: Array<number>, num2: Array<number>) {
         let carry = processMoreDigit(temp);
         Stepping = carry.Stepping;
         temp = carry.temp;
-      }
-      else {
+      }else {
         index = i - 1;
       }
       result = temp.toString() + result;
@@ -38,11 +37,12 @@ export default function add(num1: Array<number>, num2: Array<number>) {
         break;
       }
     }
-  }else if (Stepping !== 0) {
+  }
+  if (Stepping !== 0) {
     result = Stepping.toString() + result;
   }
   if (index !== undefined) {
-    result = num1.splice(0, index).join('') + result;
+    result = num1.splice(0, index + 1).join('') + result;
   }
 
 
