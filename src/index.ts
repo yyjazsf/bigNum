@@ -3,7 +3,10 @@
  */
 
 import add from './add';
-
+import subtract from './subtract';
+import multiply from './multiply';
+import divide from './divide';
+import remainder from './remainder';
 
 // js 可安全操作的最大整数 Math.pow(2, 53) - 1
 // 如果 for 循环条件为 <= Math.pow(2, 53)  就会死循环
@@ -20,14 +23,20 @@ class BigNum {
 
   public result: string;
 
-  constructor() {
+  constructor(num?: string) {
+    if (num !== undefined) {
+      this.arg1 = num.split('').map((item) => {
+        return parseInt(item, 10);
+      });
+    }
+    // 可以初始化，todo 方法做链式处理
     this.result = '';
   };
 
   // process arguments to array<Number>,and set this.arg1  this.arg2
-  private processArgs(num1: String, num2: String) {
+  private processArgs(num1: String, num2?: String) {
     let arr1: Array<string> = num1.split('');
-    let arr2: Array<string> = num2.split('');
+    let arr2: Array<string> = num2.split(''); // todo num2为空的情况
 
     if (arr2.length > arr1.length) {
       let temp = arr1;
@@ -44,7 +53,7 @@ class BigNum {
   }
 
   // add
-  add(num1: String, num2: String) {
+  add(num1: String, num2?: String) {
     this.result = '';
     this.processArgs(num1, num2);
     this.result = add(this.arg1, this.arg2);
@@ -53,15 +62,36 @@ class BigNum {
     return this;
   }
 
-  // Subtraction
-  sub(num1: String, num2: String): String {
+  // subtract
+  subtract(num1: String, num2?: String) {
+    this.result = '';
     this.processArgs(num1, num2);
-    return '';
+    this.result = subtract(this.arg1, this.arg2);
+    return this;
   }
-  // multiplication
-  mul(num1: String, num2: String): String {
+
+  // multiply
+  multiply(num1: String, num2?: String) {
+    this.result = '';
     this.processArgs(num1, num2);
-    return '';
+    this.result = multiply(this.arg1, this.arg2);
+    return this;
+  }
+
+  // divide 怎么缩写
+  divide(num1: String, num2?: String) {
+    this.result = '';
+    this.processArgs(num1, num2);
+    this.result = divide(this.arg1, this.arg2);
+    return this;
+  }
+
+  // Returns a BigInteger whose value is (this % val).
+  remainder(num1: String, num2?: String) {
+    this.result = '';
+    this.processArgs(num1, num2);
+    this.result = remainder(this.arg1, this.arg2);
+    return this;
   }
 
 }
@@ -70,4 +100,4 @@ class BigNum {
 let yyj = new BigNum();
 let zry = yyj.add('111', '1');
 
-console.log(zry.result);
+console.log(zry.valueOf());

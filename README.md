@@ -4,7 +4,7 @@
 ## Note
 这是我的一个练手项目，练习typescript、单元测试和[表达能力]()
 
-## feature
+## Feature
 * Typescript 
 * Unit Test
 * E2E Test
@@ -12,9 +12,14 @@
 
 ## Usage 
 ```bash
+## also can use yarn
 npm i 
 npm run start
 ```
+
+### Todo
+* v1.0.0 自己写，v1.0.1 移植java源码BigInteger
+
 
 ## License
 MIT
