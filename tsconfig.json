@@ -13,7 +13,7 @@
     ],
     "compilerOptions": {
         "rootDir": ".",
-        "noImplicitAny": true,
+        "noImplicitAny": false,
         "noEmitOnError": true,
         "moduleResolution": "node",
         "module": "commonjs",
