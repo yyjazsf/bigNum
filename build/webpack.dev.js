@@ -4,6 +4,7 @@
 const helpers = require('./helpers');
 const webpackMerge = require('webpack-merge'); // used to merge webpack configs
 const commonConfig = require('./webpack.common.js'); // the settings that are common to prod and dev
+const webpack = require('webpack');
 
 /**
  * Webpack Plugins
@@ -30,6 +31,14 @@ const METADATA = webpackMerge(commonConfig({ env: ENV }).metadata, {
  */
 module.exports = function (options) {
   return webpackMerge(commonConfig({ env: ENV }), {
+
+    /**
+     * Developer tool to enhance debugging
+     *
+     * See: http://webpack.github.io/docs/configuration.html#devtool
+     * See: https://github.com/webpack/docs/wiki/build-performance#sourcemaps
+     */
+    devtool: 'cheap-module-source-map',
 
     /**
      * Options affecting the output of the compilation.
@@ -72,6 +81,17 @@ module.exports = function (options) {
     },
 
     plugins: [
+
+      // new webpack.optimize.UglifyJsPlugin({
+      //   compress: {
+      //     warnings: false
+      //   },
+      //   output: {
+      //     comments: false
+      //   },
+      //   sourceMap: true
+      // }),
+
       /**
        * Plugin: DefinePlugin
        * Description: Define free variables.

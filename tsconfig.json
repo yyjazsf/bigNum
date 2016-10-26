@@ -8,6 +8,7 @@
     "exclude": [
         "node_modules",
         "**/*.spec.ts",
+        "**/*.e2e.ts",
         "dist/**/*"
     ],
     "compilerOptions": {
@@ -16,7 +17,6 @@
         "noEmitOnError": true,
         "moduleResolution": "node",
         "module": "commonjs",
-        "mapRoot": "",
         "baseUrl": "./src",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
@@ -24,6 +24,7 @@
         "removeComments": true,
         "preserveConstEnums": true,
         "declaration": false,
+        "outDir": "./dist",
         "sourceMap": true,
         "target": "es5",
         "typeRoots": [

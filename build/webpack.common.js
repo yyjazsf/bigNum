@@ -8,7 +8,7 @@ const webpack = require('webpack');
  * Webpack Plugins
  */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
+// const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 /*
@@ -70,7 +70,6 @@ module.exports = function (options) {
      * See: http://webpack.github.io/docs/configuration.html#module
      */
     module: {
-
       /*
        * Typescript loader support for .ts
        *
@@ -79,7 +78,7 @@ module.exports = function (options) {
       rules: [
         {
           test: /\.ts$/,
-          loaders: 'awesome-typescript-loader',
+          loaders: 'awesome-typescript-loader',//,
           exclude: [/\.(spec|e2e)\.ts$/]
         },
         /*
