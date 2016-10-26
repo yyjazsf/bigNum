@@ -58,7 +58,6 @@ class BigNum {
     this.processArgs(num1, num2);
     this.result = add(this.arg1, this.arg2);
     console.log(this.result);
-
     return this;
   }
 
@@ -98,6 +97,6 @@ class BigNum {
 
 
 let yyj = new BigNum();
-let zry = yyj.add('111', '1');
+let zry = yyj.subtract('111', '1');
 
-console.log(zry.valueOf());
+console.log(zry.result);
