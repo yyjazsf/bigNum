@@ -34,11 +34,17 @@ class BigNum {
   };
 
   // process arguments to array<Number>,and set this.arg1  this.arg2
-  private processArgs(num1: String, num2?: String) {
+  /**
+   * @param {string} num1 字符串类型数字
+   * @param {string} [num2] 字符串类型数字
+   * @param {boolean} [exchange] 是否把长的数放前面
+   * @description 将传入的字符串变成 Array<number>,并赋值给内部变量 this.arg1,this.arg2
+   */
+  private processArgs(num1: string, num2?: string, exchange?: boolean) {
     let arr1: Array<string> = num1.split('');
     let arr2: Array<string> = num2.split(''); // todo num2为空的情况
 
-    if (arr2.length > arr1.length) {
+    if (exchange !== false && arr2.length > arr1.length) {
       let temp = arr1;
       arr1 = arr2;
       arr2 = temp;
@@ -53,7 +59,7 @@ class BigNum {
   }
 
   // add
-  add(num1: String, num2?: String) {
+  add(num1: string, num2?: string) {
     this.result = '';
     this.processArgs(num1, num2);
     this.result = add(this.arg1, this.arg2);
@@ -62,15 +68,15 @@ class BigNum {
   }
 
   // subtract
-  subtract(num1: String, num2?: String) {
+  subtract(num1: string, num2?: string) {
     this.result = '';
-    this.processArgs(num1, num2);
+    this.processArgs(num1, num2, false);
     this.result = subtract(this.arg1, this.arg2);
     return this;
   }
 
   // multiply
-  multiply(num1: String, num2?: String) {
+  multiply(num1: string, num2?: string) {
     this.result = '';
     this.processArgs(num1, num2);
     this.result = multiply(this.arg1, this.arg2);
@@ -78,7 +84,7 @@ class BigNum {
   }
 
   // divide 怎么缩写
-  divide(num1: String, num2?: String) {
+  divide(num1: string, num2?: string) {
     this.result = '';
     this.processArgs(num1, num2);
     this.result = divide(this.arg1, this.arg2);
@@ -86,7 +92,7 @@ class BigNum {
   }
 
   // Returns a BigInteger whose value is (this % val).
-  remainder(num1: String, num2?: String) {
+  remainder(num1: string, num2?: string) {
     this.result = '';
     this.processArgs(num1, num2);
     this.result = remainder(this.arg1, this.arg2);
@@ -97,6 +103,6 @@ class BigNum {
 
 
 let yyj = new BigNum();
-let zry = yyj.subtract('111', '1');
+let zry = yyj.subtract('1', '100');
 
 console.log(zry.result);
