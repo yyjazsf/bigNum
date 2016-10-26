@@ -1,5 +1,5 @@
 /**
- * todo 和加法合并
+ * https://en.wikipedia.org/wiki/Subtraction
  */
 import { divideAndRemainder } from './utils';
 
@@ -10,53 +10,56 @@ import { divideAndRemainder } from './utils';
  */
 export default function subtract(num1: Array<number>, num2: Array<number>) {
   let result = '';
-  let stepping = 0;
-  let flag = false;
-  let temp: number;
-  let index: number;
+  let stepping = 0; // 步进？忘了叫啥了
+  let flag = false; // 结果是否为负数
+  let temp;
 
+  // 重要步骤，极大的简化计算步骤
   if (num1.length < num2.length) {
     flag = true;
-    for (let i = num2.length - num1.length; i > 0; i--) {
-      num1.push(0);
-    }
+    temp = num1;
+    num1 = num2;
+    num2 = temp;
+  }
+
+  // 将2个数位数补全，空余的用0填充
+  for (let i = num1.length - num2.length; i > 0; i--) {
+    num2.unshift(0);
   }
 
   for (let i = num1.length - 1; i > -1; i--) {
     temp = num1[i] - num2[i] - stepping;
     stepping = 0;
     if (temp < 0) {
-      let carry = divideAndRemainder(Math.abs(temp));
-      stepping = carry.stepping;
-      temp = carry.temp;
+      if (i !== 0) {
+        stepping = 1;
+        temp = temp + 10;
+      }
+      else {
+        /**
+         * result < 0
+         * 只有位数相同的情况才会出现这种情况
+         */
+        result = (-temp).toString() + result;
+        let tempResult = result.split('').reverse().map((item) => {
+          return parseInt(item, 10);
+        });
+        temp = 0;
+        for (let i = 0, len = tempResult.length - 1; i < len; i++) {
+          temp += (tempResult[i] * Math.pow(10, i));
+        }
+        temp -= tempResult[tempResult.length - 1] * Math.pow(10, tempResult.length - 1);
+        result = '';
+        // flag = true;
+      }
     }
     result = temp.toString() + result;
   }
-  // // 位数不相等，相同的位置已经加完了，现在处理多余的位置
-  // if (num1.length > num2.length) {
-  //   for (let i = num1.length - num2.length - 1; i > -1; i--) {
-  //     temp = num1[i] + stepping;
-  //     stepping = 0;
-  //     if (temp > 9) {
-  //       let carry = divideAndRemainder(temp);
-  //       stepping = carry.stepping;
-  //       temp = carry.temp;
-  //     } else {
-  //       index = i - 1;
-  //     }
-  //     result = temp.toString() + result;
-  //     if (index !== undefined) {
-  //       break;
-  //     }
-  //   }
-  // }
-  // if (stepping !== 0) {
-  //   result = stepping.toString() + result;
-  // }
-  // if (index !== undefined) {
-  //   result = num1.splice(0, index + 1).join('') + result;
-  // }
-
-
+  if (result[0] === '0') {// 好像前面只会出现一次0？
+    result = result.substr(1, result.length);
+  }
+  if (flag) {
+    result = '-' + result;
+  }
   return result;
 };
