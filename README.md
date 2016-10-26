@@ -18,7 +18,7 @@ npm run start
 ```
 
 ### Todo
-* v1.0.0 自己写，v1.0.1 移植java源码BigInteger
+* v1.0.0 自己写，v1.0.1 移植java源码[BigInteger](https://docs.oracle.com/javase/7/docs/api/java/math/BigInteger.html)
 
 
 ## License
