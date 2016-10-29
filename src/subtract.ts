@@ -1,8 +1,6 @@
 /**
  * https://en.wikipedia.org/wiki/Subtraction
  */
-import { divideAndRemainder } from './utils';
-
 /**
  * @param {Array<number>} num1 被减数
  * @param {Array<number>} num2 减数
