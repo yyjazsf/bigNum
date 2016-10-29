@@ -55,7 +55,7 @@ export default function subtract(num1: Array<number>, num2: Array<number>) {
     }
     result = temp.toString() + result;
   }
-  if (result[0] === '0') {// 好像前面只会出现一次0？
+  while (result[0] === '0') {// 好像前面只会出现一次0？
     result = result.substr(1, result.length);
   }
   if (flag) {
