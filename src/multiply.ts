@@ -1,6 +1,6 @@
 /**
  * 乘法
- * 将在纸上的计算过程还原成程序
+ * 模拟手工计算的普通大数乘法[采用]，分治算法和FFT算法
  */
 
 import divideAndRemainder from './utils/divideAndRemainder';
