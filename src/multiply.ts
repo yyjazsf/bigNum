@@ -6,11 +6,14 @@
 import divideAndRemainder from './utils/divideAndRemainder';
 import processArgs from './utils/processArgs';
 import add from './add';
+
 /**
- * @param {num1} name 位数长的数字数组
- * @param {num2} name 位数短的数字数组
+ * @description 乘法
+ * @param  {Array<number>} num1 位数长的数字数组
+ * @param  {Array<number>} num2 位数短的数字数组
+ * @return {string} 以字符串表示的积
  */
-export default function multiply(num1: Array<number>, num2: Array<number>) {
+export default function multiply(num1: Array<number>, num2: Array<number>): string {
 
   let result = undefined;
   let tempArr = []; // 记录乘的过程中[被乘数]第N位数乘以[乘数]的积

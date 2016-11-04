@@ -3,8 +3,16 @@
  */
 
 import divideAndRemainder from './utils/divideAndRemainder';
-
-export default function add(num1: Array<number>, num2: Array<number>) {
+/**
+ * @description 加法
+ * @param  {Array<number>} num1
+ * @param  {Array<number>} num2
+ * @returns string 字符串表示的和
+ */
+export default function add(num1: Array<number>, num2: Array<number>): string {
+  // deep copy
+  num1 = num1.slice(0);
+  num2 = num2.slice(0);
   let result = '';
   let stepping = 0;
   let temp: number;

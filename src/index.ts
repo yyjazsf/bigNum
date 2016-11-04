@@ -59,11 +59,17 @@ class BigNum {
     return this;
   }
 
-  // divide 怎么缩写
-  divide(num1: string, num2?: string) {
+  /**
+   * @description 除法
+   * @param  {string} num1
+   * @param  {string} num2
+   * @param  {number} decimal=0
+   * @return {BigNum} 当前BigNum对象
+   */
+  divide(num1: string, num2: string, decimal = 0) {
     this.result = '';
-    this.args = processArgs(num1, num2);
-    this.result = divide(this.args[0], this.args[1]);
+    this.args = processArgs(num1, num2, false);
+    this.result = divide(this.args[0], this.args[1], decimal);
     return this;
   }
 
@@ -74,10 +80,10 @@ class BigNum {
     this.result = remainder(this.args[0], this.args[1]);
     return this;
   }
-  
+
 }
 
 let yyj = new BigNum();
-let zry = yyj.multiply('99', '99');
+let zry = yyj.divide('300', '7', 2);
 
 console.log(zry.result);

@@ -1,5 +1,5 @@
 /**
- * 第一次写 :)
+ * 加法
  * mocha --compilers ts:ts-node/register tests/acceptance/add.spec.ts
  */
 import * as assert from 'assert';
