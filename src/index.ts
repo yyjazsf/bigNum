@@ -59,7 +59,13 @@ class BigNum {
     return this;
   }
 
-  // divide 怎么缩写
+  /**
+   * @description 除法
+   * @param  {string} num1
+   * @param  {string} num2
+   * @param  {number} decimal=0
+   * @return {BigNum} 当前BigNum对象
+   */
   divide(num1: string, num2: string, decimal = 0) {
     this.result = '';
     this.args = processArgs(num1, num2, false);
