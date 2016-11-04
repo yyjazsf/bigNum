@@ -1,5 +1,6 @@
-
-
+/**
+ * 减法
+ */
 import * as assert from 'assert';
 import subtract from '../../src/subtract';
 

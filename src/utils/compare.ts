@@ -2,7 +2,7 @@
  * @description 比较2个数字
  * @param  {Array<number>} num1 number数组的大数一
  * @param  {Array<number>} num2 number数组的大数二
- * @returns number -1:num1<num2   0:相等  1:num1>num2
+ * @returns numbe  1:num1>num2  0:相等 -1:num1<num2
  */
 export default function (num1: Array<number>, num2: Array<number>): number {
 

@@ -62,7 +62,7 @@ class BigNum {
   // divide 怎么缩写
   divide(num1: string, num2?: string) {
     this.result = '';
-    this.args = processArgs(num1, num2);
+    this.args = processArgs(num1, num2, false);
     this.result = divide(this.args[0], this.args[1]);
     return this;
   }
@@ -74,10 +74,10 @@ class BigNum {
     this.result = remainder(this.args[0], this.args[1]);
     return this;
   }
-  
+
 }
 
 let yyj = new BigNum();
-let zry = yyj.multiply('99', '99');
+let zry = yyj.divide('300', '7');
 
 console.log(zry.result);

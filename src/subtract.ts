@@ -1,12 +1,14 @@
 /**
- * https://en.wikipedia.org/wiki/Subtraction
+ * @description 减法，https://en.wikipedia.org/wiki/Subtraction
+ * @param  {Array<number>} num1
+ * @param  {Array<number>} num2
+ * @returns string
  */
-/**
- * @param {Array<number>} num1 被减数
- * @param {Array<number>} num2 减数
- * @return {string} 结果
- */
-export default function subtract(num1: Array<number>, num2: Array<number>) {
+export default function subtract(num1: Array<number>, num2: Array<number>): string {
+  // deep copy
+  num1 = num1.slice(0);
+  num2 = num2.slice(0);
+
   let result = '';
   let stepping = 0; // 步进？忘了叫啥了
   let flag = false; // 结果是否为负数
