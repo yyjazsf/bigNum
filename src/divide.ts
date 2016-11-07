@@ -33,26 +33,38 @@ export default function divide(num1: Array<number>, num2: Array<number>, decimal
       return '1';
     }
   }
-  decimal += 1;
+  decimal += 1; // 小数点和多出来的一位
   let currVal: any = []; // 减去被除数的当前值
   let quot = 0; // 当前位的商值
-  let hasDot = false;
+  let hasDot = false; // 是否加了小数点
+  let first = 1; // 记录第一次进入循环，跳过num2.length-1 的位置
+
   // todo 实现指定精确度 0.xxx   len = num1.length; i < len
   for (let i = num2.length - 1, len = num1.length + decimal; i < len; i++ , quot = 0) {
     if (num1.length === 0 && currVal.length !== 0) {
       if (!hasDot) {
         hasDot = true;
-        result += '.';
+        result += result.length === 0 ? '0.' : '.';
       }
       currVal.push(0);
     } else if (num1.length === 0 && currVal.length === 0) {
       break;
     } else {
-      currVal = currVal.concat(num1.splice(0, 1));
+      if (first === 1) {
+        first = 0;
+        currVal = currVal.concat(num1.splice(0, i + 1));
+      } else {
+        currVal = currVal.concat(num1.splice(0, 1));
+      }
     }
 
     isBig = compare(currVal, num2);
-    if (isBig === -1) {
+    if (isBig === -1) { // 去除第一次判断的0
+      if (first !== 0) {
+        result += '0';
+      } else {
+        first = -1;
+      }
       continue;
     }
     while (compare(currVal, num2) !== -1) {
@@ -67,13 +79,14 @@ export default function divide(num1: Array<number>, num2: Array<number>, decimal
 
   }
 
-  // todo 如果有小数点，四舍五入
-  // let dotIndex = result.indexOf('.');
-  // if (dotIndex !== -1) {
-  //   let dotAfter = result.substr(dotIndex + 1, result.length); // 小数点后面数字
-  //   if (dotAfter.length > decimal - 1 && parseInt(dotAfter[dotAfter.length - 1], 10) > 4) {
-  //     // add()
-  //   }
-  // }
+  let dotIndex = result.indexOf('.');
+  if (dotIndex !== -1) {
+    let dotAfter = result.substr(dotIndex + 1, result.length); // 小数点后面数字
+    if (dotAfter.length > decimal - 1 ) {
+      // todo 处理小数点的四舍五入 add(,0.01)
+      // && parseInt(dotAfter[dotAfter.length - 1], 10) > 4
+      dotAfter = dotAfter.substr(0, dotAfter.length - 1);
+    }
+  }
   return result;
 };
