@@ -84,6 +84,6 @@ class BigNum {
 }
 
 let yyj = new BigNum();
-let zry = yyj.divide('300', '7', 2);
+let zry = yyj.divide('10', '11', 2);
 
 console.log(zry.result);
